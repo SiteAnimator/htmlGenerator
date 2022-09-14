@@ -5,13 +5,13 @@
     file:       example.html
     function:   Demonstrates generating html content with the htmlGenerator module
 
-    Last revision: 16-06-2022
+    Last revision: 12-09-2022
  
 -->
 <html>
     <head>
         <title>Html Generator App</title>
-        <link id="favicon" href="https://www.siteanimator.com/logo/icon.ico" rel="shortcut icon" type="image/x-icon">
+        <link id="favicon" href="icon.ico" rel="shortcut icon" type="image/x-icon">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -19,20 +19,32 @@
             
             body {
                 background-color: black;
-                color: silver;
+                color: DarkGreen;
                 font-size: 1.2rem;
                 line-height: 1.8rem;
+            }
+            a:link {
+                color: MediumAquaMarine;
+            }
+            a:visited {
+                color: green;
+            }
+            a:hover {
+                color: Gold;
+            }
+            a:active {
+                color: DarkOrange;
             }
             
         </style>
     </head>
     <body>
-        <div style='padding-top: 20px;max-width: 800px; margin: 0 auto;'>
+        <div style='padding-left:40px;padding-top: 120px;max-width: 800px; margin: 0 auto;'>
         This is an example in the series of modules created for the Site Animator project.<br>
         </div>
 
         <div style='padding-top: 40px;max-width: 800px; margin: 0 auto;'>
-            <img src="https://www.siteanimator.com/logo/logo.png" alt="Site Animator">
+            <img src="logo.png" alt="Site Animator">
         </div>
         
         <div style='padding-top: 40px;max-width: 800px; margin: 0 auto;'>
@@ -80,7 +92,6 @@
     
 </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="main.js"></script>
 <script src="./service/debuggerModule.js"></script>
 <script src="./service/htmlGeneratorModule.js"></script>

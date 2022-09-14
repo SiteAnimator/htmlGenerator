@@ -4,7 +4,7 @@
         file:       flexItemModule.js
         function:   Creates the HTML for a flex item from JSON.
   
-        Last revision: 16-06-2022
+        Last revision: 14-09-2022
  
 */
 
@@ -40,14 +40,14 @@
             'borderWidth'           :   '0.1rem',           // css
             'borderStyle'           :   'groove',           // css
             'borderColor'           :   'silver',           // css
-            'borderRadius'          :   '1.2rem',             // css
+            'borderRadius'          :   '1.2rem',           // css
         };                                                  // done named array  
         self.titleOptions = {                               // named array 
             'id'                    :   htmlGenerator.getUiId( self.moduleName + 'title' ), // string 
             'element'               :   'div',              // html element type 
             'textAlign'             :   'left',             // css
             'fontSize'              :   '1.5rem',           // css
-            'color'                 :   'Moccasin',       // css
+            'color'                 :   'Moccasin',         // css
         };                                                  // done named array  
         self.descriptionOptions = {                         // named array 
             'id'                    :   htmlGenerator.getUiId( self.moduleName + 'description' ), // string 
@@ -55,7 +55,7 @@
             'textAlign'             :   'left',             // css
             'fontSize'              :   '1.1rem',           // css
             'marginTop'             :   '1rem',             // css
-            'color'                 :   'NavajoWhite',       // css
+            'color'                 :   'NavajoWhite',      // css
         };                                                  // done named array  
         self.modules = {};                                  // named array
         // DONE MEMBERS     
@@ -76,20 +76,20 @@
         // FUNCTION: createHtml( void ) void
 
             // create container
-            $( '#' + self.parentId ).append( htmlGenerator.generateHtml( self.containerOptions ) );
+            htmlGenerator.appendContainer( self.parentId, self.containerOptions );
             
             // set title
             self.titleOptions['text'] = self.options['title'];
             
             // add title to container
-            $( '#' + self.containerOptions['id'] ).append( htmlGenerator.generateHtml( self.titleOptions ) );
+            htmlGenerator.appendContainer( self.containerOptions['id'], self.titleOptions );
         
             // set description
             self.descriptionOptions['text'] = self.options['description'];
             
             // add description to container
-            $( '#' + self.containerOptions['id'] ).append( htmlGenerator.generateHtml( self.descriptionOptions ) );
-        
+            htmlGenerator.appendContainer( self.containerOptions['id'], self.descriptionOptions );
+            
         // DONE FUNCTION: createHtml( void ) void
         };
         self.debug = function( message ) {

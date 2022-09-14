@@ -6,7 +6,7 @@
                 generates an unique id from a string
                 return: string
 
-    Last revision: 16-06-2022
+    Last revision: 12-09-2022
  
 */    
 

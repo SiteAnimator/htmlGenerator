@@ -4,7 +4,7 @@
         file:       titleModule.js
         function:   Creates the title.
   
-        Last revision: 16-06-2022
+        Last revision: 12-09-2022
  
 */
 
@@ -32,13 +32,13 @@
         self.contentOptions = {                             // named array 
             'id'                    :    htmlGenerator.getUiId( self.moduleName + 'Content' ),     // string 
             'element'               :   'div',              // html element type 
-            'text'                  :   'This is the generated HTML', // string 
+            'text'                  :   'This is a demonstration of Javascript application build with modules.', // string 
             'readOnly'              :   true,               // boolean
             'textAlign'             :   'center',           // css
             'styleWidth'            :   '100%',             // css
             'styleHeight'           :   '100%',             // css
             'backgroundColor'       :   'transparent',      // css
-            'color'                 :   'darkGoldenRod',    // css
+            'color'                 :   'Chocolate',        // css
             'fontSize'              :   '1.5rem',           // css
             'marginTop'             :   '5rem',             // css
             'textShadow'            :   '2px -1px rgba( 0, 0, 0, 0.3 )',  // css
@@ -61,10 +61,10 @@
         // FUNCTION: createHtml( void ) void
 
             // create container
-            $( '#' + self.parentId ).append( htmlGenerator.generateHtml( self.containerOptions ) );
+            htmlGenerator.appendContainer( self.parentId, self.containerOptions );
             
-            // add content to container
-            $( '#' + self.containerOptions['id'] ).append( htmlGenerator.generateHtml( self.contentOptions ) );
+            // create content
+            htmlGenerator.appendContainer( self.containerOptions['id'], self.contentOptions );
         
         // DONE FUNCTION: createHtml( void ) void
         };

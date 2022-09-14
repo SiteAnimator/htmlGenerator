@@ -4,7 +4,7 @@
     file:       main.js
     function:   This file contains the main application module.    
                 
-    Last revision: 16-06-2022
+    Last revision: 12-09-2022
  
 */    
 
@@ -40,10 +40,11 @@
             self.modules.debugger = new htmlGenerator.service.debuggerModule( self.options['debugOptions'] );
 
             // create get ui id module
-            self.modules.getUiIdModule = new htmlGenerator.service.getUiIdModule( );
+            self.modules.getUiId = new htmlGenerator.service.getUiIdModule( );
 
             // create html generator module
             self.modules.htmlGenerator = new htmlGenerator.service.htmlGeneratorModule( );
+
 
         // DONE FUNCTION: createServices( void ) void
         };

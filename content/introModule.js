@@ -4,7 +4,7 @@
         file:       introModule.js
         function:   Creates the HTML for the intro.
   
-        Last revision: 16-06-2022
+        Last revision: 12-09-2022
  
 */
 
@@ -32,26 +32,26 @@
         self.titleOptions = {                               // named array 
             'id'                    :   htmlGenerator.getUiId( self.moduleName + 'Title' ), // string 
             'element'               :   'div',              // html element type 
-            'text'                  :   'This is a demonstration of Javascript application build with modules.',  // string 
+            'text'                  :   '',                 // string 
             'readOnly'              :   true,               // boolean
             'textAlign'             :   'center',           // css
             'styleWidth'            :   '100%',             // css
             'styleHeight'           :   '100%',             // css
             'backgroundColor'       :   'transparent',      // css
-            'color'                 :   'darkGoldenRod',    // css
+            'color'                 :   'LightSeaGreen',    // css
             'fontSize'              :   '1.2rem',           // css
             'marginTop'             :   '1rem',             // css
         };                                                  // done named array  
         self.introOptions = {                               // named array 
             'id'                    :   htmlGenerator.getUiId( self.moduleName + 'Intro' ), // string 
             'element'               :   'div',              // html element type 
-            'text'                  :   'The application demonstrates the use of a HTML generator module that creates an HTML from JSON.',  // string 
+            'text'                  :   'This is a HTML generator module that creates an HTML from JSON.',  // string 
             'readOnly'              :   true,               // boolean
             'textAlign'             :   'center',           // css
             'styleWidth'            :   '100%',             // css
             'styleHeight'           :   '100%',             // css
             'backgroundColor'       :   'transparent',      // css
-            'color'                 :   'darkGoldenRod',    // css
+            'color'                 :   'LightSeaGreen',             // css
             'fontSize'              :   '1.2rem',           // css
             'marginTop'             :   '1rem',             // css
         };                                                  // done named array  
@@ -73,13 +73,13 @@
         // FUNCTION: createHtml( void ) void
 
             // create container
-            $( '#' + self.parentId ).append( htmlGenerator.generateHtml( self.containerOptions ) );
+            htmlGenerator.appendContainer( self.parentId, self.containerOptions );
             
             // add title to container
-            $( '#' + self.containerOptions['id'] ).append( htmlGenerator.generateHtml( self.titleOptions ) );
-        
+            htmlGenerator.appendContainer( self.containerOptions['id'], self.titleOptions );
+               
             // add intro to container
-            $( '#' + self.containerOptions['id'] ).append( htmlGenerator.generateHtml( self.introOptions ) );
+            htmlGenerator.appendContainer( self.containerOptions['id'], self.introOptions );
         
         // DONE FUNCTION: createHtml( void ) void
         };

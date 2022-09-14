@@ -4,7 +4,7 @@
         file:       flexModule.js
         function:   Generates a flex container and creates the items.
   
-        Last revision: 16-06-2022
+        Last revision: 12-09-2022
  
 */
 
@@ -29,7 +29,7 @@
             'element'               :   'div',              // html element type 
             'text'                  :   'For example a generated flex container:', // string 
             'textAlign'             :   'center',           // css
-            'color'                 :   'DarkOrange',       // css
+            'color'                 :   'Peru',             // css
             'fontSize'              :   '1.2rem',           // css
             'marginTop'             :   '1rem',             // css
             'marginBottom'          :   '3rem',             // css
@@ -42,7 +42,7 @@
             'textAlign'             :   'center',           // css
             'fontSize'              :   '1.1rem',           // css
             'marginBottom'          :   '3rem',             // css
-            'color'                 :   'DarkOrange',       // css
+            'color'                 :   'Peru',             // css
             'backgroundColor'       :   'transparent',      // css
         };                                                  // done named array  
         self.flexOptions = {                                // named array 
@@ -50,7 +50,7 @@
             'element'               :   'div',              // html element type 
             'display'               :   'flex',             // css
             'flexWrap'              :   'wrap',             // css
-            'justifyContent'          :   'center',     // css
+            'justifyContent'        :   'center',           // css
             'margin'                :   '0 auto',           // css
             'maximumWidth'          :   '80%',              // css
         };                                                  // done named array  
@@ -66,8 +66,8 @@
                 'description'       :   'The debugger module provides on screen messages<br>' +
                                         'to the modules of the application.', // string 
             },                                              // done named array 
-            'getUniqueId' : {                                   // named array 
-                'title'             :   'getUniqueId',          // string 
+            'getUniqueId' : {                               // named array 
+                'title'             :   'getUniqueId',      // string 
                 'description'       :   'The getUniqueId module provides unique id`s<br>' +
                                         'for the HTML elements created in the application.', // string 
             },                                              // done named array 
@@ -79,7 +79,7 @@
             'content' : {                                   // named array 
                 'title'             :   'content',          // string 
                 'description'       :   'The content module creates the HTML content<br>' +
-                                        'of the page.', // string 
+                                        'of the page.',     // string 
             },                                              // done named array 
             'flex' : {                                      // named array 
                 'title'             :   'flex',             // string 
@@ -115,13 +115,13 @@
         // FUNCTION: createHtml( void ) void
 
             // create container
-            $( '#' + self.parentId ).append( htmlGenerator.generateHtml( self.containerOptions ) );
-            
+            htmlGenerator.appendContainer( self.parentId, self.containerOptions );
+                        
             // add title to container
-            $( '#' + self.containerOptions['id'] ).append( htmlGenerator.generateHtml( self.titleOptions ) );
+            htmlGenerator.appendContainer( self.containerOptions['id'], self.titleOptions );
                 
             // add flex to container
-            $( '#' + self.containerOptions['id'] ).append( htmlGenerator.generateHtml( self.flexOptions ) );
+            htmlGenerator.appendContainer( self.containerOptions['id'], self.flexOptions );
                 
         // DONE FUNCTION: createHtml( void ) void
         };
@@ -132,11 +132,11 @@
             let flexItemModule = htmlGenerator.content.flexItemModule;
 
             // loop over items
-            $.each( self.flexItems, function( index, options ) { 
+            Object.entries( self.flexItems ).forEach( ( [key, options] ) => {
             
                 // create flex item 
-                self.flexItems[index]['module'] = new flexItemModule( self.flexOptions['id'],
-                                                                      options );
+                self.flexItems[key]['module'] = new flexItemModule( self.flexOptions['id'],
+                                                                    options );
                 // create flex item 
                 
             });

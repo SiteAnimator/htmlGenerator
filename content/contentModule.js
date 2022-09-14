@@ -4,7 +4,7 @@
         file:       contentModule.js
         function:   Generates a HTML element for the content.
   
-        Last revision: 16-06-2022
+        Last revision: 12-09-2022
  
 */
 
@@ -54,11 +54,11 @@
         // FUNCTION: createHtml( void ) void
 
             // create container
-            $( document.body ).prepend( htmlGenerator.generateHtml( self.containerOptions ) );
+            htmlGenerator.prependContainer( document.body, self.containerOptions );
             
-            // add content to container
-            $( '#' + self.containerOptions['id'] ).append( htmlGenerator.generateHtml( self.contentOptions ) );
-        
+            // create content
+            htmlGenerator.appendContainer( self.containerOptions['id'], self.contentOptions );
+            
         // DONE FUNCTION: createHtml( void ) void
         };
         self.createContent = function() {
